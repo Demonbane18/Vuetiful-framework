@@ -1,10 +1,11 @@
 <template>
+<!-- add div v-if in modal -->
   <h1>{{ title }}</h1>
-  <!-- add prop -->
-  <!-- <Modal header="Sign up for the Giveaway" text="$100 prize!"/> -->
-  <!-- use data bind instead -->
-  <!-- add theme attribute -->
-  <Modal :header="header" :text="text" theme="sale"/>    
+  <p>Welcome...</p>
+  <div v-if="showModal">
+      <Modal :header="header" :text="text" theme="sale" @close="toggleModal"/>   
+  </div>
+ <button @click="toggleModal">open modal</button>
 </template> 
 
 <script>
@@ -19,14 +20,13 @@ export default {
     return {
       title: 'My First Vue App!',
       header: 'Sign up for the Giveaway',
-      text: '$100 prize!'
+      text: '$100 prize!',
+      showModal: false
     }
   }, 
   methods: {
-    handleClick() {
-      console.log(this.$refs.name)
-      this.$refs.name.classList.add('active')
-      this.$refs.name.focus()
+    toggleModal() {
+      this.showModal = !this.showModal
     }
   }
 }

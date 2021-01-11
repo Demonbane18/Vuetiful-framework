@@ -1,6 +1,6 @@
 <template>
-<!-- add header and text prop -->
-<div class="backdrop">
+<!-- add click event in backdrop -->
+<div class="backdrop" @click="closeModal">
     <!-- data bind class when theme is created -->
     <div class="modal" :class="{sale: theme === 'sale'}">
         <h1>{{ header }}</h1>
@@ -11,7 +11,12 @@
 
 <script>
 export default {
-    props: ['header', 'text', 'theme']
+    props: ['header', 'text', 'theme'],
+    methods: {
+        closeModal() {
+            this.$emit('close')
+        }
+    }
 }
 </script>
 
