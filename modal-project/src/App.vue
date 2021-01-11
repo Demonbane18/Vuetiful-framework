@@ -1,9 +1,17 @@
 <template>
-<!-- add right, shift or alt modifier to button -->
+<!-- add Modal slots and named slots -->
   <h1>{{ title }}</h1>
   <p>Welcome...</p>
   <div v-if="showModal">
-      <Modal :header="header" :text="text" theme="sale" @close="toggleModal"/>   
+      <Modal theme="sale" @close="toggleModal">
+        <template v-slot:links>
+          <a href="#">Sign up now</a>
+          <a href="#">More info</a>
+        </template>
+        <h1>Sign up for the giveaway</h1>
+        <p>$100 prize</p>
+
+      </Modal>   
   </div>
  <button @click.alt="toggleModal">open modal (alt)</button>
 </template> 
@@ -33,9 +41,7 @@ export default {
 </script>
 
 <style>
-/* scope will destroy #app style */
-/* create global style sheets */
-/* override global style on Modal.vue */
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -44,7 +50,7 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
-/* added h1 style */
+
 h1 {
   border-bottom: 1px solid #ddd;
   display: inline-block;
