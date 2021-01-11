@@ -7,3 +7,7 @@ If you've downloaded/clone the repository, before you run the project you will h
 using 
 <pre><code>npm install
 </code></pre>
+If you can't serve the web app, you are probably doing it on the wrong directory. Please use
+<pre><code>cd modal project
+</code></pre>
+to access the directory with all the files.
