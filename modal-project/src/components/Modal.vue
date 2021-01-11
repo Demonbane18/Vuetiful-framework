@@ -1,7 +1,6 @@
 <template>
-<!-- add click event in backdrop -->
-<div class="backdrop" @click="closeModal">
-    <!-- data bind class when theme is created -->
+<!-- add self event modifier -->
+<div class="backdrop" @click.self="closeModal">
     <div class="modal" :class="{sale: theme === 'sale'}">
         <h1>{{ header }}</h1>
         <p>{{ text }}</p>
