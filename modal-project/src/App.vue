@@ -1,5 +1,7 @@
 <template>
-<!-- add Modal slots and named slots -->
+<!-- add second modal -->
+<!-- add showModalTwo property -->
+<!-- add toggleModalTwo function -->
   <h1>{{ title }}</h1>
   <p>Welcome...</p>
   <div v-if="showModal">
@@ -13,7 +15,15 @@
 
       </Modal>   
   </div>
+  <div v-if="showModalTwo">
+      <Modal theme="sale" @close="toggleModalTwo">
+        <h1>Sign up for the newsletter</h1>
+        <p>For updates and promo codes!</p>
+      </Modal> 
+  </div>
+  
  <button @click.alt="toggleModal">open modal (alt)</button>
+ <button @click="toggleModalTwo">open modal </button>
 </template> 
 
 <script>
@@ -29,12 +39,16 @@ export default {
       title: 'My First Vue App!',
       header: 'Sign up for the Giveaway',
       text: '$100 prize!',
-      showModal: false
+      showModal: false,
+      showModalTwo: false
     }
   }, 
   methods: {
     toggleModal() {
       this.showModal = !this.showModal
+    },
+    toggleModalTwo() {
+      this.showModalTwo = !this.showModalTwo
     }
   }
 }
