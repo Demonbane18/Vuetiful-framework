@@ -29,6 +29,9 @@ export default {
 </script>
 
 <style>
+/* scope will destroy #app style */
+/* create global style sheets */
+/* override global style on Modal.vue */
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
