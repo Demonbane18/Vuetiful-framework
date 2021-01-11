@@ -1,7 +1,4 @@
 <template>
-<!-- add slots -->
-<!-- add div actions -->
-<!-- add slot links -->
 <div class="backdrop" @click.self="closeModal">
     <div class="modal" :class="{sale: theme === 'sale'}">
         <slot>default content</slot>

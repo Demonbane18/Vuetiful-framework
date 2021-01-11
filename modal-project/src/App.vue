@@ -1,10 +1,9 @@
 <template>
-<!-- add second modal -->
-<!-- add showModalTwo property -->
-<!-- add toggleModalTwo function -->
+<!-- replace div with teleport -->
+<!-- also works with id -->
   <h1>{{ title }}</h1>
   <p>Welcome...</p>
-  <div v-if="showModal">
+  <teleport to="#modals" v-if="showModal">
       <Modal theme="sale" @close="toggleModal">
         <template v-slot:links>
           <a href="#">Sign up now</a>
@@ -14,13 +13,13 @@
         <p>$100 prize</p>
 
       </Modal>   
-  </div>
-  <div v-if="showModalTwo">
+  </teleport>
+  <teleport to="#modals" v-if="showModalTwo">
       <Modal theme="sale" @close="toggleModalTwo">
         <h1>Sign up for the newsletter</h1>
         <p>For updates and promo codes!</p>
       </Modal> 
-  </div>
+  </teleport>
   
  <button @click.alt="toggleModal">open modal (alt)</button>
  <button @click="toggleModalTwo">open modal </button>
@@ -56,7 +55,7 @@ export default {
 
 <style>
 
-#app {
+#app, #modals {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
